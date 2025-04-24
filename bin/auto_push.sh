@@ -18,7 +18,7 @@ print_yellow() {
 }
 
 # 获取脚本所在目录
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # 获取仓库根目录
 REPO_DIR="$(dirname "$SCRIPT_DIR")"
 
@@ -38,13 +38,13 @@ cd "$REPO_DIR" || {
 if [ ! -d ".git" ]; then
     print_red "当前目录不是git仓库"
     exit 1
-}
+fi
 
 # 检查custom目录是否存在
 if [ ! -d "custom" ]; then
     print_red "custom目录不存在"
     exit 1
-}
+fi
 
 print_blue "开始处理自定义配置更新..."
 
