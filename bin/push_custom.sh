@@ -74,10 +74,10 @@ git add bin/ || {
     print_yellow "警告: 无法添加bin目录的变更"
 }
 
-# 同时添加根目录中对应的文件
+# 同时添加根目录中非忽略的文件
 for file in $(find custom -type f -not -path "*/\.*" | sed 's|^custom/||'); do
-    if [ -f "$file" ]; then
-        git add -f "$file" 2>/dev/null || true
+    if [ -f "$file" ] && ! [[ "$file" == *custom*.yaml ]]; then
+        git add "$file" 2>/dev/null || true
     fi
 done
 
