@@ -50,13 +50,11 @@ print_blue "开始处理自定义配置更新..."
 
 # 1. 将custom目录的文件复制到上层目录
 print_blue "将custom目录中的文件复制到根目录..."
-cp -f custom/* . 2>/dev/null || {
-    print_yellow "复制文件时出现一些警告 (这通常是正常的)"
-}
+cp -f custom/* . 2>/dev/null || true
 
-# 2. 检查custom目录是否有变更
+# 2. 检查目录是否有变更
 print_blue "检查custom目录变更..."
-git status --porcelain custom/ | grep -q . || {
+git status --porcelain custom/ bin/ | grep -q . || {
     print_blue "检查整个仓库是否有变更..."
     git status --porcelain | grep -q . || {
         print_yellow "没有检测到任何变更，无需提交"
@@ -71,12 +69,15 @@ git add custom/ || {
     exit 1
 }
 
+# 添加bin目录的变更
+git add bin/ || {
+    print_yellow "警告: 无法添加bin目录的变更"
+}
+
 # 同时添加根目录中对应的文件
 for file in $(find custom -type f -not -path "*/\.*" | sed 's|^custom/||'); do
     if [ -f "$file" ]; then
-        git add "$file" || {
-            print_yellow "警告: 无法添加 $file 到暂存区"
-        }
+        git add -f "$file" 2>/dev/null || true
     fi
 done
 
