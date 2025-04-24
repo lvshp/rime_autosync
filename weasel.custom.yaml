@@ -1,0 +1,14 @@
+patch:
+  app_options/+:
+    windowsterminal.exe:
+      ascii_mode: true
+    powershell.exe:
+      ascii_mode: true
+# 主题和样式
+  style/color_schemes: win11_dark
+  style/font_point: 14
+  style/horizontal: false
+  layout/style/corner_radius: 5
+  layout/style/hilited_corner_radius: 5
+  layout/style/line_spacing: 10
+  layout/style/hilite_spacing: 6
