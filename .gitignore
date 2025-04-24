@@ -1,0 +1,9 @@
+.DS_Store
+lua/tips.userdb/**
+zc.userdb/**
+sync/**
+installation.yaml
+user.yaml
+/*custom*
+my_custom_dict.txt
+wanxiang-lts-zh-hans.gram
