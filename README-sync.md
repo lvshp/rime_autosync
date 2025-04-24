@@ -148,7 +148,7 @@ git ls-files -v | grep '^S'
 
 更新过程的日志记录在以下位置：
 
-- 更新执行日志：`~/Library/Rime/bin/update_log.txt`
+- 更新执行日志：`~/Library/Rime/bin/update_log.log`
 - launchd错误日志：`~/Library/Logs/rime_update_error.log`
 - launchd标准输出：`~/Library/Logs/rime_update.log`
 

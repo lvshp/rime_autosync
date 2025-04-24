@@ -18,7 +18,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # 获取仓库根目录
 REPO_DIR="$(dirname "$SCRIPT_DIR")"
 # 设置日志文件
-LOG_FILE="$REPO_DIR/bin/update_log.txt"
+LOG_FILE="$REPO_DIR/bin/update_log.log"
 # 设置临时备份目录
 BACKUP_DIR="/tmp/rime_update_backup"
 
