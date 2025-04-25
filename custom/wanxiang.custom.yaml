@@ -3,6 +3,16 @@ patch:
     speller/algebra:
         __patch:
             - wanxiang.schema:/全拼 # 双拼方案（如全拼/自然码/小鹤等）
+    #语言模型
+    octagram:
+        __patch:
+            grammar:
+                language: wanxiang-lts-zh-hans
+                collocation_max_length: 5
+                collocation_min_length: 2
+            translator/contextual_suggestions: true
+            translator/max_homophones: 7
+            translator/max_homographs: 7
     # 中英混合词典
     cn_en/user_dict: en_dicts/pinyin # 中英词典路径（需与双拼类型对应）
     # 个人短语库
